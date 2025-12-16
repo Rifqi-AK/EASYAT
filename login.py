@@ -1,4 +1,5 @@
 import csv
+import dietrec as dr
 
 file_path = 'data_Akun.csv'
 
@@ -54,7 +55,7 @@ def dashboard(username):
         print("5. Profile User") # optional
         print("0. Keluar")
 
-        menu = int(input("Pilih dari (0-5): "))
+        menu = int(input("Pilih dari 0-5: "))
 
         if menu == 0:
             print("\nSelamat Tinggal! Semoga Harimu Menyenangkan! ^_^ ")
@@ -62,7 +63,7 @@ def dashboard(username):
         elif menu == 1:
             import bmi # file bmi.py
         elif menu == 2:
-            pass # file dietrec.py
+            dr.Pilihan_Metode()# file dietrec.py
         elif menu == 3:
             pass # file reseppage.py
         elif menu == 4:
@@ -81,9 +82,9 @@ def signup_login():
     while True:
         print("1. Sign-up")
         print("2. Login")
-        print("3. Keluar")
+        print("0. Keluar")
 
-        pilihan = int(input("Pilih (1, 2, atau 3): "))
+        pilihan = int(input("Pilih 1, 2, atau 0: "))
 
         if pilihan == 1:
             while True:
