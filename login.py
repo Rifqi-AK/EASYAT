@@ -1,6 +1,7 @@
 import csv
 import dietrec as dr
 import bmi
+import resep
 
 file_path = 'data_Akun.csv'
 
@@ -70,6 +71,7 @@ def dashboard(username):
 
         elif menu == '3':
             pass # file reseppage.py
+            resep.menu()
 
         elif menu == '4':
             pass # file calorytrack.py
@@ -97,7 +99,7 @@ def signup_login():
             while True:
                 username_input = input("Buat Username: ")
                 password_input = input("Buat Password: ")
-                cek_hasil = signup(username_input, password_input, apakah_profile_sudah_dibuat = False)
+                cek_hasil = signup(username_input, password_input)
 
                 if cek_hasil:
                     break
