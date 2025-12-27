@@ -2,6 +2,7 @@ import csv
 import dietrec as dr
 import bmi
 import resep
+import calorytrack as ct
 
 file_path = 'data_Akun.csv'
 
@@ -67,14 +68,14 @@ def dashboard(username):
             bmi.kalkulator_bmi() # file bmi.py
 
         elif menu == '2':
-            dr.Pilihan_Metode()# file dietrec.py
+            dr.Pilihan_Metode() # file dietrec.py
 
         elif menu == '3':
-            pass # file reseppage.py
-            resep.menu()
+            resep.menu() # file reseppage.py
+            
 
         elif menu == '4':
-            pass # file calorytrack.py
+            ct.menu(user=username) # file calorytrack.py
 
         elif menu == '5':
             pass
