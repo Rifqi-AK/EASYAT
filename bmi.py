@@ -21,4 +21,5 @@ def kalkulator_bmi():
     print("\nHasil perhitungan BMI kamu:")
     print("Nilai BMI:", round(bmi, 2))
     print("Kategori :", kategori)
+    
     return bmi, berat, tinggi

@@ -4,7 +4,6 @@ import bmi
 import resep
 import calorytrack as ct
 import profil
-import pandas as pd
 
 file_path = 'data_Akun.csv'
 
@@ -28,7 +27,7 @@ def signup(username, password):
             })
 
         print("Akun anda berhasil dibuat!")
-        return hasil
+    return hasil
     
 def login(username, password):
     with open(file_path, 'r') as file:
@@ -85,7 +84,7 @@ def dashboard(username):
                 profil.create_profile(username)
 
         else:
-            print("\nInvalid! Silahkan memasukkan angka dari 0-5\n")
+            print("\nInvalid! Silahkan masukkan angka antara 0-5\n")
     
 def signup_login():
     print("Selamat Datang di Easy@!: ")
@@ -116,7 +115,7 @@ def signup_login():
                 password_input = input("Password: ")
                 cek_login      = login(username_input, password_input)
                 if cek_login:
-                    user = username_input
+                    username = username_input
                     break
 
                 else:
@@ -127,7 +126,7 @@ def signup_login():
                 print("Kamu salah Username atau Password 3 kali, jika kamu belum memiliki akun \nSilahkan Sign-up terlebih dahulu")
 
             if cek_login:
-                dashboard(user)
+                dashboard(username)
                 break
                     
         elif pilihan == '0':

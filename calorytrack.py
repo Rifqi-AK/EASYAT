@@ -15,12 +15,12 @@ def cek(berat, kalori):
         return "Tidak ada di database"
     
 def catatan_harian(catatan_path, total_kalori):
-    hari_ini = datetime.now()
+    hari_ini = datetime.now() #tgl saat catatan dimasukkan
     with open(catatan_path, 'w') as file:
         file.write(f"{hari_ini.date()}: {total_kalori} kalori\n")
 
 def update_catatan(catatan_path, total_kalori):
-    hari_ini = datetime.now()
+    hari_ini = datetime.now() #tgl saat catatan dimasukkan
     with open(catatan_path, 'a') as file:
         file.write(f"{hari_ini.date()}: {total_kalori} kalori\n")
 
@@ -72,11 +72,11 @@ def Isi_catatan(user):
                     break 
 
     list_kalori = [] #untuk list kalori makanan yg ada kalorinya
-    for i in range(len(list_makanan_user)):
-        kalori = cek(berat=copy_lbm[i], kalori=list_berat_makanan[i])
-        print(f"{list_makanan_user[i]} {copy_lbm[i]}(g): {kalori} kalori")
+    for i in range(len(list_makanan_user)): #untuk setiap baris di list_makanan_user
+        kalori = cek(berat=copy_lbm[i], kalori=list_berat_makanan[i]) #ngecek apakah ada kalori makanan dlm database
+        print(f"{list_makanan_user[i]} {copy_lbm[i]}(g): {kalori} kalori") #makanannya beratnya(g): kalorinya
 
-        if kalori != "Tidak ada di database":
+        if kalori != "Tidak ada di database": #filter makanan yg tidak ada kalorinya di database
             list_kalori.append(kalori)
 
     total_kalori = float(sum(list_kalori))
@@ -110,7 +110,7 @@ def menu(user):
             while True:
                 Isi_catatan(user)
                 yesOrNo = input("Apakah kamu sudah selesai mengisi catatan?\n-> ").lower()
-                if yesOrNo in ['ya', 'yes', 'iya']:
+                if yesOrNo in ['ya', 'yes', 'iya', 'sudah', 'sdh']:
                     break
 
         elif pilih == '2':

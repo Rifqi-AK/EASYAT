@@ -51,7 +51,7 @@ def profile(username):
     usia   = df.loc[df['Username'] == username,'Usia']
     sex    = df.loc[df['Username'] == username,'JenisKelamin']
 
-    nama  : str   = nama.iloc[0]
+    nama  : str   = nama.iloc[0] #iloc krn pake integer 
     imt   : float = imt.iloc[0]
     berat : float = berat.iloc[0]
     tinggi: float = tinggi.iloc[0]
