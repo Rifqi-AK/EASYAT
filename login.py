@@ -14,7 +14,7 @@ def signup(username, password):
         for i in membaca_data:  #diubah menjadi list
             if len(i) == 0: #cek agar tidak ada index error
                 pass            
-            elif username in i[0]:
+            elif username == i[0]:
                 print("Maaf, username ini sudah terpakai. Silahkan buat username yang berbeda")
                 hasil = False
 
