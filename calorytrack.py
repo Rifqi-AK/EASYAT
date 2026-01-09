@@ -6,6 +6,7 @@ from datetime import datetime
 import pandas as pd
 
 file_path = "List_kalori_per100gram.csv"
+file_path2 = "minuman.csv"
 
 def cek(berat, kalori):
     if berat != kalori:
@@ -34,6 +35,15 @@ def Isi_catatan(user):
     database = pd.read_csv(file_path)
     print(database)
     print("=" * 50)
+
+    print()
+
+    print("=" * 50)
+    print("LIST MINUMAN DIBAWAH INI UNTUK PENYAJIAN 100ML")
+    print("=" * 50)
+    database2 = pd.read_csv(file_path2)
+    print(database2)
+    print("=" * 50)
     
     # print("\nMakanan||Kalori per 100 gram")                         # DIMODIFIKASI PAKE PANDAS
     # with open(file_path, 'r') as file:                                # TETAP DISINI AJA BISI PANDASNYA ERROR
@@ -51,7 +61,7 @@ def Isi_catatan(user):
     copy_lbm = [] #copy dari list_berat_makanan
 
     while True:
-        makanan_user = input("Makanan: ").lower()
+        makanan_user = input("Makanan/Minuman: ").lower()
         if makanan_user == 'sudah':
             break
         berat_makanan = float(input("Berat (gram): "))
