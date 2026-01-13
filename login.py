@@ -4,6 +4,7 @@ import bmi
 import resep
 import calorytrack as ct
 import profil
+import pandas as pd
 
 file_path = 'data_Akun.csv'
 
@@ -28,8 +29,43 @@ def signup(username, password):
 
         print("Akun anda berhasil dibuat!")
     return hasil
-    
+
+def admin_site():
+    while True:
+        
+        print('Dashboard Admin')
+        print('1. lihat profile user')
+        print('2. menambah resep')
+        print('0. Keluar')
+        menu = input('->')
+        
+        if menu == '0':
+            break
+        elif menu == '1':
+            
+            with open('data_profile.csv', 'r') as file:
+                membaca_data = csv.reader(file)
+                num = 0
+                for i in membaca_data:  #diubah menjadi list
+                                
+                    if len(i) == 0: #cek agar tidak ada index error
+                        num += 1
+                    else:
+                        num = 0
+                        
+                if num == 1:
+                    print('belum ada profile di data profile')          
+                else:
+                    data = pd.read_csv('data_profile.csv')
+                    print(data)
+        elif menu == '2':
+            resep.tambah_resep()
+        else:
+            print('invalid')
+    return True
+
 def login(username, password):
+    admin = False
     with open(file_path, 'r') as file:
         membaca_data = csv.reader(file)
         hasil = False
@@ -37,12 +73,14 @@ def login(username, password):
         for i in membaca_data: #diubah menjadi list
             if len(i) == 0: #cek agar tidak ada index error
                 pass
+            elif ((username == i[0]) and (password == i[1])) and username == 'Admin':    
+                admin = admin_site()
             elif (username == i[0]) and (password == i[1]):
                 hasil = True
             if hasil:
                 break
 
-        return hasil
+        return hasil, admin
     
 def dashboard(username):
     print(f"\nSelamat datang {username}")
@@ -113,7 +151,9 @@ def signup_login():
             while num != 3:
                 username_input = input("Username: ")
                 password_input = input("Password: ")
-                cek_login      = login(username_input, password_input)
+                cek_login, admin      = login(username_input, password_input)
+                if admin:
+                    break
                 if cek_login:
                     username = username_input
                     break

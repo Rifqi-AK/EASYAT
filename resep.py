@@ -86,8 +86,7 @@ def menu():
         print("===== DIET HELPER =====")
         print("1. Lihat Resep Makanan Sehat")
         print("2. Lihat Detail Resep")
-        print("3. Tambah Resep Sehat")
-        print("4. Keluar")
+        print("3. Keluar")
 
         pilihan = input("Pilih menu: ")
 
@@ -96,8 +95,6 @@ def menu():
         elif pilihan == "2":
             detail_resep()
         elif pilihan == "3":
-            tambah_resep()
-        elif pilihan == "4":
             print("Terima kasih telah menggunakan Diet Helper.")
             break
         else:
